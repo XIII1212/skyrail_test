@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>安平景點地圖</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      #map { height: 100vh; width: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        const center = { lat: 23.0008, lng: 120.1603 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 15,
+          center: center
+        });
+
+        const spots = [
+          { name: "安平古堡", lat: 23.001, lng: 120.160 },
+          { name: "安平樹屋", lat: 23.0015, lng: 120.159 }
+        ];
+
+        spots.forEach(spot => {
+          new google.maps.Marker({
+            position: { lat: spot.lat, lng: spot.lng },
+            map,
+            title: spot.name
+          });
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsGmR_ZBquX6_QH5k58LbN-kulY0EJ7Gg&callback=initMap" async defer></script>
+  </body>
+</html>

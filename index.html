@@ -2,20 +2,29 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
+  <title>SkyRail 台南安平導覽</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SkyRail 安平導覽</title>
-  <link rel="manifest" href="manifest.json">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="apple-touch-icon" href="icon.png">
+  <script>
+    function switchLang(lang) {
+      localStorage.setItem('lang', lang);
+      window.location.reload();
+    }
+  </script>
   <style>
-    body { font-family: sans-serif; padding: 20px; background: #f8fcff; }
+    body { font-family: sans-serif; background: #f0f8ff; padding: 20px; }
     h1 { color: #2e8b57; }
-    a { display: block; margin: 12px 0; font-size: 1.2em; color: #2e8b57; text-decoration: none; }
+    a { display: block; margin: 10px 0; font-size: 1.1em; }
+    .lang-buttons button { margin-right: 10px; }
   </style>
 </head>
 <body>
-  <h1>SkyRail 台南安平 App</h1>
-  <a href="timetable.html">SkyRail 班表查詢</a>
-  <a href="guide.html">安平景點導覽</a>
+  <h1>SkyRail 導覽系統</h1>
+  <div class="lang-buttons">
+    <button onclick="switchLang('zh')">中文</button>
+    <button onclick="switchLang('en')">English</button>
+  </div>
+  <a href="guide.html">景點介紹 / Guide</a>
+  <a href="map.html">互動地圖 / Map</a>
+  <a href="planner.html">推薦行程 / Trip Planner</a>
 </body>
 </html>
