@@ -2,26 +2,55 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>安平景點導覽</title>
+  <title>景點介紹</title>
   <style>
-    body { font-family: sans-serif; padding: 20px; background: #f9f9f9; }
+    body { font-family: sans-serif; padding: 20px; background: #fff; }
     h1 { color: #2e8b57; }
-    .spot { margin-bottom: 20px; }
-    .spot img { width: 100%; max-width: 300px; display: block; margin-top: 8px; }
+    h3 { margin-top: 15px; }
+    img { width: 100%; max-width: 300px; margin: 10px 0; border-radius: 6px; }
   </style>
 </head>
 <body>
-  <h1>安平景點導覽</h1>
-  <div class="spot">
-    <strong>安平古堡</strong><br>
-    荷蘭時期建造，台灣最早的西式城堡建築之一。<br>
-    <img src="anping.jpg" alt="安平古堡">
-  </div>
-  <div class="spot">
-    <strong>安平樹屋</strong><br>
-    原德記洋行倉庫，現被大榕樹盤據，成為著名景觀。<br>
-    <img src="treehouse.jpg" alt="安平樹屋">
-  </div>
+  <h1>景點介紹 / Guide</h1>
+  <div id="spotList"></div>
   <a href="index.html">← 回首頁</a>
+
+  <script>
+    const lang = localStorage.getItem('lang') || 'zh';
+
+    const data = {
+      spots: [
+        {
+          name: { zh: "安平古堡", en: "Anping Fort" },
+          desc: {
+            zh: "荷蘭時期建造，台灣最古老的西式城堡。",
+            en: "Built during the Dutch era, Taiwan's oldest Western-style fortress."
+          },
+          image: "anping.jpg"
+        },
+        {
+          name: { zh: "安平樹屋", en: "Anping Tree House" },
+          desc: {
+            zh: "德記洋行舊倉庫，被榕樹覆蓋成自然奇觀。",
+            en: "An old warehouse covered by banyan roots, forming a natural wonder."
+          },
+          image: "treehouse.jpg"
+        }
+      ]
+    };
+
+    window.onload = function () {
+      const list = document.getElementById("spotList");
+      data.spots.forEach(function (spot) {
+        const div = document.createElement("div");
+        div.innerHTML = 
+          <h3>${spot.name[lang]}</h3>
+          <p>${spot.desc[lang]}</p>
+          <img src="${spot.image}" alt="${spot.name[lang]}">
+        ;
+        list.appendChild(div);
+      });
+    };
+  </script>
 </body>
 </html>
