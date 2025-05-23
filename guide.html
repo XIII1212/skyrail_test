@@ -3,38 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <title>景點介紹</title>
-  <script>
-    const lang = localStorage.getItem('lang') || 'zh';
-    const data = {
-      spots: [
-        {
-          name: { zh: "安平古堡", en: "Anping Fort" },
-          desc: { zh: "荷蘭時期建造，台灣最古老的西式城堡。", en: "Built during the Dutch era, Taiwan's oldest Western-style fortress." }
-        },
-        {
-          name: { zh: "安平樹屋", en: "Anping Tree House" },
-          desc: { zh: "德記洋行舊倉庫，被榕樹覆蓋成自然奇觀。", en: "An old warehouse covered by banyan roots, forming a natural wonder." }
-        }
-      ]
-    };
-    window.onload = () => {
-      const list = document.getElementById('spotList');
-      data.spots.forEach(spot => {
-        const div = document.createElement('div');
-        div.innerHTML = `<h3>${spot.name[lang]}</h3><p>${spot.desc[lang]}</p>`;
-        list.appendChild(div);
-      });
-    }
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body { font-family: sans-serif; padding: 20px; background: #fff; }
     h1 { color: #2e8b57; }
     h3 { margin-top: 15px; }
+    img { width: 100%; max-width: 300px; margin: 10px 0; border-radius: 6px; }
   </style>
 </head>
 <body>
   <h1>景點介紹 / Guide</h1>
   <div id="spotList"></div>
   <a href="index.html">← 回首頁</a>
+
+  <script type="text/javascript">
+    const lang = localStorage.getItem('lang') || 'zh';
+
+    const data = {
+      spots: [
+        {
+          name: { zh: "安平古堡", en: "Anping Fort" },
+          desc: {
+            zh: "荷蘭時期建造，台灣最古老的西式城堡。",
+            en: "Built during the Dutch era, Taiwan's oldest Western-style fortress."
+          },
+          image: "anping.jpg"
+        },
+        {
+          name: { zh: "安平樹屋", en: "Anping Tree House" },
+          desc: {
+            zh: "德記洋行舊倉庫，被榕樹覆蓋成自然奇觀。",
+            en: "An old warehouse covered by banyan roots, forming a natural wonder."
+          },
+          image: "treehouse.jpg"
+        }
+      ]
+    };
+
+    window.onload = function () {
+      const list = document.getElementById("spotList");
+      data.spots.forEach(function (spot) {
+        const div = document.createElement("div");
+        div.innerHTML = `
+          <h3>${spot.name[lang]}</h3>
+          <p>${spot.desc[lang]}</p>
+          <img src="${spot.image}" alt="${spot.name[lang]}">
+        `;
+        list.appendChild(div);
+      });
+    };
+  </script>
 </body>
 </html>
