@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>SkyAI 智慧低碳交通系統</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body { font-family: sans-serif; background: #f4f7f8; margin: 0; }
+    header { background: teal; color: white; padding: 1rem; text-align: center; }
+    section { padding: 1rem; }
+    input, button { padding: 0.5rem; margin: 0.5rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: center; }
+    .highlight { background-color: #d0f5d8; }
+    #map { height: 400px; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>整合 SkyRail 與 AI 智慧路線建議的永續交通模擬平台</h2>
+  </header>
+
+  <section>
+    <input id="start" placeholder="起點，例如 台中車站" />
+    <input id="end" placeholder="終點，例如 桃園國際機場" />
+    <button id="searchBtn">規劃路線</button>
+  </section>
+
+  <section id="weatherTip">🌐 請輸入起點以查詢天氣建議</section>
+  <section id="map">🗺️ 模擬地圖</section>
+
+  <section>
+    <h3>建議結果</h3>
+    <div id="summary"></div>
+    <table>
+      <thead>
+        <tr>
+          <th>交通方式</th>
+          <th>時間</th>
+          <th>時速</th>
+          <th>距離</th>
+          <th>碳排量</th>
+          <th>建議</th>
+        </tr>
+      </thead>
+      <tbody id="resultTable"></tbody>
+    </table>
+  </section>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
