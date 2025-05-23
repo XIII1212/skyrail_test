@@ -4,10 +4,19 @@
   <meta charset="UTF-8">
   <title>SkyRail 台南安平導覽</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2e8b57">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="icon.png">
   <script>
     function switchLang(lang) {
       localStorage.setItem('lang', lang);
       window.location.reload();
+    }
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('Service Worker Registered'));
     }
   </script>
   <style>
