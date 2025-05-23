@@ -4,7 +4,7 @@
     <title>安平景點地圖</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-      #map { height: 100vh; width: 100%; }
+      #map { height: 50vh; width: 100%; }
     </style>
   </head>
   <body>
@@ -14,7 +14,7 @@
         const center = { lat: 23.0008, lng: 120.1603 };
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 15,
-          center: top
+          center: center
         });
 
         const spots = [
