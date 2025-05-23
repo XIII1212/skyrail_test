@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>景點介紹</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body { font-family: sans-serif; padding: 20px; background: #fff; }
     h1 { color: #2e8b57; }
@@ -15,7 +16,7 @@
   <div id="spotList"></div>
   <a href="index.html">← 回首頁</a>
 
-  <script>
+  <script type="text/javascript">
     const lang = localStorage.getItem('lang') || 'zh';
 
     const data = {
@@ -43,11 +44,11 @@
       const list = document.getElementById("spotList");
       data.spots.forEach(function (spot) {
         const div = document.createElement("div");
-        div.innerHTML = 
+        div.innerHTML = `
           <h3>${spot.name[lang]}</h3>
           <p>${spot.desc[lang]}</p>
           <img src="${spot.image}" alt="${spot.name[lang]}">
-        ;
+        `;
         list.appendChild(div);
       });
     };
